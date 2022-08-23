@@ -1,9 +1,12 @@
+// IMPORT PACKAGE AND MODELS
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class Blog extends Model {
 }
 
+
+// CREATE BLOG
 Blog.init(
   {
    

@@ -1,9 +1,12 @@
+// IMPORT PACKAGE AND MODELS
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class Comment extends Model {
 }
 
+
+// CREATE COMMENT
 Comment.init(
   {
    user_id: {

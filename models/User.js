@@ -1,3 +1,4 @@
+// IMPORT PACKAGES AND MODELS
 const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
@@ -8,6 +9,7 @@ class User extends Model {
   }
 }
 
+// CREATE NEW USER
 User.init(
   {
     name: {
@@ -30,6 +32,8 @@ User.init(
       },
     },
   },
+
+  // HASH PASSWORDS
   {
     hooks: {
       beforeCreate: async (newUserData) => {
