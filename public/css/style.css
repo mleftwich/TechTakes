@@ -1,0 +1,22 @@
+a {
+    color:cadetblue;
+}
+
+a:hover {
+    color:rgb(122, 201, 207)
+}
+
+h1, h2 {
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+
+#alert:hover {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 2s, opacity 2s linear;
+  }
+
+#alert:end {
+    opacity: 0;
+}
+  
