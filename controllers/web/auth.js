@@ -75,7 +75,16 @@ router.get('/signup', (req, res) => {
 
 // post request for signup
 router.post('/signup', async (req, res) => {
+if(req.body.password != req.body.confirm) {
+  res.status(400).render('signup', { 
+    error: "Passwords don't match"})
+}
+let pwd = req.body.password
 
+if(pwd.length < 8) {
+  res.status(400).render('signup', { 
+    error: "Passwords must be at least 8 characters"})
+} else {
   try {
     const newUser = await User.create({
       name: req.body.name,
@@ -93,8 +102,8 @@ router.post('/signup', async (req, res) => {
       error: "There's been an error try again later"})
   
   }
+}
 });
 
- 
 
 module.exports = router;
