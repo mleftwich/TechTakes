@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const { reset } = require('nodemon');
 const User = require('../../models/User');
 const withAuth = require('../../utils/auth');
 
