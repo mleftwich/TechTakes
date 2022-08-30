@@ -43,7 +43,7 @@ async function seedComment(userPool, blogPool, num = 10) {
       const faked =  await Comment.create({
             user_id: faker.helpers.arrayElement(userPool).id,
             blog_id: faker.helpers.arrayElement(blogPool).id,
-            content: faker.lorem.paragraph(),
+            comment: faker.lorem.paragraph(),
         })
         dummyComms.push(faked)
     }

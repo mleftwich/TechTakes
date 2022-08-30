@@ -10,7 +10,8 @@ router.get('/login', (req, res) => {
 
 
 router.post('/login', async (req, res) => {
-    try {
+  
+  try {
         const userData = await User.findOne({ where: { email: req.body.email } });
     
         if (!userData) {
@@ -28,20 +29,46 @@ router.post('/login', async (req, res) => {
             })
         return;
         }
-    
+        
+       
         req.session.save(() => {
           req.session.user_id = userData.id;
           req.session.logged_in = true;
           
-          res.json({ user: userData, message: 'You are now logged in!' });
+          res.redirect('/home')
         });
-    
-      } catch (err) {
-        res.status(400).json(err);
+        
+      
+    }
+      catch (err) {
+        res.status(400).render('login', { 
+          error: err})
       }
     });
     
-//sign up page
+   
+
+// LOGOUT
+
+router.get('/logout', async (req, res) => {
+  req.session.destroy
+  let status = 'Login'
+    let method = "/login"
+    let action = "New User"
+    let todo = "/signup"
+ 
+  res.render('logout', { method, status, action, todo })
+})
+
+
+
+    // res.status(400).render('login', { 
+     // error: "Email or password incorrect"
+
+
+
+
+    //sign up page
 
 //post request for sign up
 

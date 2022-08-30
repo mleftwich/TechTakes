@@ -18,14 +18,14 @@ Comment.init(
         type: DataTypes.INTEGER,
         allowNull: false,
          },
-    content: {
+    comment: {
       type: DataTypes.TEXT,
       allowNull: false,
     },
   },
   {
     sequelize,
-    timestamps: false,
+    timestamps: true,
     underscored: true,
     modelName: 'comment',
   }

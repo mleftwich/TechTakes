@@ -28,7 +28,7 @@ const sess = {
   })
 };
 
-app.use(session(sess));
+ app.use(session(sess));
 
 // TELL EXPRESS TO USE HB TEMPLATES
 app.engine('handlebars', hbs.engine);
