@@ -90,7 +90,6 @@ router.post('/signup', async (req, res) => {
       res.render('success')
     });
   } catch (err) {
-    console.log(err)
     res.status(400).render('signup', { 
       error: "There's been an error try again later"})
   
