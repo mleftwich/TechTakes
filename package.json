@@ -1,8 +1,6 @@
 {
   "scripts": {
-    "start": "node server.js",
-    "seed": "node db/seed.js",
-    "watch": "nodemon server.js"
+    "start": "node server.js"
   },
   "dependencies": {
     "@faker-js/faker": "^7.4.0",
