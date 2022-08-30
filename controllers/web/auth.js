@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const { reset } = require('nodemon');
 const User = require('../../models/User')
 // AUTHENTICATION ROUTES
 
@@ -42,7 +43,7 @@ router.post('/login', async (req, res) => {
     }
       catch (err) {
         res.status(400).render('login', { 
-          error: err})
+          error: "There's been an error try again later"})
       }
     });
     
@@ -60,7 +61,31 @@ router.get('/logout', async (req, res) => {
   res.render('logout', { method, status, action, todo })
 })
 
+router.get('/signup', (req, res) => {
+  res.render('signup')
+})
 
+router.post('/signup', async (req, res) => {
+
+  try {
+    const newUser = await User.create({
+      name: req.body.name,
+      email: req.body.email,
+      password: req.body.password,
+    });
+
+    // SET SESSION VARIABLE LOGGEDIN TO TRUE
+    req.session.save(() => {
+      req.session.loggedIn = true;
+      res.render('success')
+    });
+  } catch (err) {
+    console.log(err)
+    res.status(400).render('signup', { 
+      error: "There's been an error try again later"})
+  
+  }
+});
 
     // res.status(400).render('login', { 
      // error: "Email or password incorrect"
