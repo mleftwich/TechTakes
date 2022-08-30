@@ -1,7 +1,8 @@
 {
   "scripts": {
-    "start": "node server.js",
-    "seed": "node db/seed.js"
+    "start": "npm run watch",
+    "seed": "node db/seed.js",
+    "watch": "nodemon server.js"
   },
   "dependencies": {
     "@faker-js/faker": "^7.4.0",
@@ -15,5 +16,8 @@
     "faker": "^6.6.6",
     "mysql2": "^2.3.3",
     "sequelize": "^6.21.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
   }
 }
