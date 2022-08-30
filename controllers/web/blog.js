@@ -23,7 +23,7 @@ router.get("/home", withAuth, async (req, res, next) => {
 });
 
 // GET INDIVIDUAL BLOG
-router.get("/blogs/:id", async (req, res) => {
+router.get("/blogs/:id", withAuth, async (req, res, next) => {
   let status = "Logout";
   let method = "/logout";
   let action = "Dashboard";
@@ -47,7 +47,6 @@ router.get("/blogs/:id", async (req, res) => {
     raw: true,
     nest: true,
   });
-  console.log(comments);
   res.render("blog", { specBlog, comments, status, method, action, todo });
 });
 
@@ -90,7 +89,6 @@ router.get("/dashboard", withAuth, async (req, res, next) => {
    nest: true,
   });
 
-  console.log(userBlogs);
   res.render("dashboard", { blogs, userBlogs, status, method, todo });
 });
 
