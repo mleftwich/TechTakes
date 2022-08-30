@@ -1,5 +1,4 @@
 const router = require('express').Router();
-
 const blogs = require('./web/blog');
 const auth = require('./web/auth');
 
