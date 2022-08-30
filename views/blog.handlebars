@@ -1,0 +1,56 @@
+ <nav class="navbar fixed-top navbar-dark">
+  <ul class="nav">
+  <li class="nav-item">
+    <a class="nav-link active" href="/home">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{{method}}">{{status}}</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{{todo}}">{{action}}</a>
+  </li>
+</ul>
+</nav>
+ 
+ <div class="container card p-5">
+ 
+<div class="card-header bg-secondary"><H2 class="text-light">{{specBlog.title}}</H2><p class="text-white-50">{{format_date specBlog.createdAt}}</p></div>
+<div class="card-body bg-light"><p class="text-muted">{{specBlog.content}}</p></div>
+
+
+
+{{#each comments as |comment|}}
+
+
+    <div class="card-body">
+        {{#if this.createdAt}}
+        <b class="text-info comment">{{format_date this.createdAt}}</b>
+        {{/if}}
+        {{#if this.createdAt}}
+    <p class="comment text-muted">{{this.comment}}</p>
+    
+    -<b class="text-muted">{{this.user.name}}</b>
+  {{/if}}
+
+
+
+    </div>
+{{/each}}
+
+<div class="card">
+        <div class="card-header">
+            <h4 class="text-muted">Leave a comment</h2>
+        </div>
+        <div class="card-body w-55">
+        <form action="/blogs/{{specBlog.id}}" method="post">
+         
+          <div class="form-group">
+            <textarea type="text" class="form-control" id="comment" name="comment" placeholder="Type your comment here" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-secondary">Post</button>
+        </form>
+        </div>
+        </div>
+</div>
+</div>
+</div>

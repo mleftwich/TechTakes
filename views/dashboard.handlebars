@@ -12,20 +12,27 @@
 </ul>
 </nav>
 
-<div class="container">
+
+
+<div class="container d-block">
+  <div class="container d-flex justify-content-between">
     <h1>Your Blogs</h1>
+   
+    <a href="/new"><button class="btn btn-secondary">New Post</button></a>
+     </div>
     <div class="card p-5">
-    {{#each userBlogs as |blog|}}
-<div class="card-header bg-secondary"><H2 class="text-light">{{blog.title}}</H2></div>
+    {{#each blogs as |blog|}}
+<div class="card-header bg-secondary mt-3"><a href="/edit/{{blog.id}}"><H2 class="text-light">{{blog.title}}</H2></a></div>
 <div class="card-body bg-light"><p class="text-muted">{{blog.content}}</p></div>
 
-
-  
-   
-     <h5>Comments</h5>
+{{/each}}
+  <h5>Comments</h5>
+   {{#each userBlogs as |blog|}}
+     
     <div class="card-body">
         {{#if this.comments.createdAt}}
-        <b class="text-info comment">{{format_date this.comments.createdAt}}</b>
+        <b class="text-info">{{blog.title}}</b>
+        <span class="comment"> // Posted on: </span><b class="text-muted comment">{{format_date this.comments.createdAt}}</b>
         {{/if}}
         {{#if this.comments.comment}}
     <p class="comment text-muted">{{this.comments.comment}}</p>

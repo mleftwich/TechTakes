@@ -1,15 +1,15 @@
 const router = require('express').Router();
 const { reset } = require('nodemon');
-const User = require('../../models/User')
-// AUTHENTICATION ROUTES
+const User = require('../../models/User');
+const withAuth = require('../../utils/auth');
 
-//login page 
+// LOGIN
+// get login page
 router.get('/login', (req, res) => {
     res.render('login')
 })
-//post request for login
 
-
+// post request for login
 router.post('/login', async (req, res) => {
   
   try {
@@ -49,22 +49,32 @@ router.post('/login', async (req, res) => {
     
    
 
-// LOGOUT
+//LOGOUT
+// get logout page
 
-router.get('/logout', async (req, res) => {
-  req.session.destroy
-  let status = 'Login'
-    let method = "/login"
-    let action = "New User"
-    let todo = "/signup"
- 
-  res.render('logout', { method, status, action, todo })
-})
+router.get('/logout', withAuth, async (req, res, next) => {
+  if (req.session.logged_in) {
+   
+    req.session.destroy(function () {
+      res.status(204).end();
+    });
+   res.redirect('/login')
+  } else {
+    res.status(404).end();
+  }
+});
 
+
+
+
+
+//SIGNUP
+// get signup page
 router.get('/signup', (req, res) => {
   res.render('signup')
 })
 
+// post request for signup
 router.post('/signup', async (req, res) => {
 
   try {
@@ -87,14 +97,6 @@ router.post('/signup', async (req, res) => {
   }
 });
 
-    // res.status(400).render('login', { 
-     // error: "Email or password incorrect"
-
-
-
-
-    //sign up page
-
-//post request for sign up
+ 
 
 module.exports = router;

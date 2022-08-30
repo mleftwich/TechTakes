@@ -1,0 +1,37 @@
+<nav class="navbar fixed-top navbar-dark">
+  <ul class="nav">
+  <li class="nav-item">
+    <a class="nav-link active" href="/">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{{method}}">{{status}}</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{{todo}}">{{action}}</a>
+  </li>
+</ul>
+</nav>
+
+ 
+  <div class="container">
+        <div class="card-header bg-secondary">
+            <h2 class="text-light">Update Post</h2>
+        </div>
+        <div class="card-body bg-light">
+        <form action="/edit/{{specBlog.id}}" method="post">
+          <div class="form-group">
+            <label for="formGroupExampleInput2">Title</label>
+            <textarea type="text" class="form-control" id="post" name="title" rows="1" required>{{specBlog.title}}</textarea>
+          </div>
+          <div class="form-group">
+            <label for="formGroupExampleInput2">Content</label>
+            <textarea type="text" class="form-control" id="post" name="post" placeholder="" rows="20" required>{{specBlog.content}}</textarea>
+          </div>
+          <div class="container d-flex">
+          <button type="submit" class="btn btn-secondary">Update Blog</button>
+        </form>
+       <form action="/delete/{{specBlog.id}}" method="post">
+       <button type="submit" class="btn btn-danger ml-3">Delete Blog</button>
+        </div>
+        </div>
+        </div>
