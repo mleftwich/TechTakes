@@ -4,6 +4,7 @@
   
   ## Table of Contents
   * [Description](#description)
+  * [Technologies](#technologies)
   * [Installation](#installation)
   * [Usage](#usage)
   * [Contributing](#contributing)
@@ -14,11 +15,21 @@
 ---
 
   ## Description
-  Tech Takes is a CMS style blog that revolves around everything tech. Full functionality to view, create and edit blog posts and comment on others contributions. Created using express-handlebars it offers a pleasing and easy to understand user interface.
+  Tech Takes is a CMS style blog created using the tech world as inspiration, but easily modified to fit any content. Full functionality to view, create and edit blog posts and comment on others contributions. Created using express-handlebars it offers a pleasing and easy to understand user interface, with user authentication and verification.
+  
   ![screenshot](./assets/imgs/screenshot.png)
 
+  ## Technologies
+  * HTML
+  * handlebars.js
+  * CSS
+  * Bootstrap
+  * JavaScript
+  * node.js
+  * MySQL
+  
   ## Installation
-   None
+   No installation requirements
 
 
   ## Usage
@@ -26,7 +37,7 @@
 
 
   ## Contributing
-   Reach out through the email below
+   If you'd like to contribute, reach out through the email below
 
 
   ## Guidelines
@@ -34,7 +45,7 @@
 
 
   ## Tests
-   
+   Tests run in development
 
 
   ## License
